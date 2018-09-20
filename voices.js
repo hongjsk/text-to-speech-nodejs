@@ -6,6 +6,7 @@ const DE_TEXT = 'In dem Bewusstsein ihres geistig-religiösen und sittlichen Erb
 const IT_TEXT = "Consapevole del suo patrimonio spirituale e morale, l'Unione si fonda sui valori indivisibili e universali della dignità umana, della libertà, dell'uguaglianza e della solidarietà; essa si basa sul principio della democrazia e sul principio dello Stato di diritto. Pone la persona al centro della sua azione istituendo la cittadinanza dell'Unione e creando uno spazio di libertà, sicurezza e giustizia.";
 const JP_TEXT = '精神的、そして道徳的な遺産を意識的に受け継いで、人間の尊厳、自由、平等、連帯の不可分で普遍的な価値を大前提として連合は設立される。すなわち、連合は民主主義と法治の原則に立脚する。連合は市民権を確立し、自由と安全、正義が確保された地域を創造することによって、その組織活動の中心に個人を置く。';
 const PT_TEXT = 'Consciente do seu patrimônio espiritual e moral, a União é fundamentada nos valores indivisíveis e universais da dignidade humana, liberdade, igualdade e solidariedade; é baseada nos princípios da democracia e estado de direito. Ela coloca o indivíduo no centro de suas ações, ao instituir a cidadania da União e ao criar um espaço de liberdade, segurança e justiça.';
+const KR_TEXT = '정신적 및 도덕적 유산을 의식한 연합은 인간의 존엄성, 자유, 평등 및 연대의 불가분의 보편적 가치에 기초하며, 민주주의와 법치의 원칙을 기반으로 한다. 연합의 시민권과 자유, 안전 및 정의의 영역을 수립함으로써 활동의 중심에 개인을 둔다.';
 
 // Sample text values with SSML
 const ES_SSML = '<p><s>Consciente de su patrimonio espiritual y moral<break time="300ms"/>, la Unión está fundada sobre los valores indivisibles y universales de la dignidad humana, <prosody rate="-15%"> la libertad, la igualdad y la solidaridad, </prosody> y se basa en los principios de la democracia y el Estado de Derecho<break time="500ms"/>.</s> <s><prosody rate="+20%">Al instituir la ciudadanía de la Unión </prosody> y crear un espacio de libertad, seguridad y justicia, sitúa a la persona en el centro de su actuación.</s></p>';
@@ -17,6 +18,7 @@ const DE_SSML = '<p><s>In dem Bewusstsein ihres geistig-religiösen und sittlich
 const IT_SSML = '<p><s>Consapevole del suo patrimonio spirituale e morale<break time="300ms"/>, l\'Unione si fonda sui valori indivisibili e universali della dignità umana, <prosody rate="-15%">della libertà, dell\'uguaglianza e della solidarietà; </prosody> essa si basa sul principio della democrazia e sul principio dello Stato di diritto<break time="500ms"/>.</s><s> Pone la persona al centro della sua azione istituendo la cittadinanza dell\'Unione e creando uno spazio di libertà, sicurezza e giustizia.</s></p>';
 const JP_SSML = '<p><s>精神的、そして道徳的な遺産を<break time="300ms"/>意識的に受け継いで、<prosody rate="-15%">人間の尊厳、自由、平等、連帯の不可分で普遍的な価値を大前提として</prosody>連合は設立される。すなわち、連合は民主主義と法治の原則に立脚する。<break time="500ms"/>連合は市民権を確立し、自由と安全、正義が確保された地域を創造することによって、その組織活動の中心に個人を置く。</s></p>';
 const PT_SSML = '<p><s>Consciente do seu patrimônio espiritual e moral<break time="300ms"/>, a União é fundamentada nos valores indivisíveis e universais da dignidade humana, <prosody rate="-15%">liberdade, igualdade e solidariedade; </prosody> é baseada nos princípios da democracia e estado de direito<break time="500ms"/>. </s> <s> <prosody rate="+15%">Ela coloca o indivíduo no centro de suas ações, </prosody> ao instituir a cidadania da União e ao criar um espaço de liberdade, segurança e justiça.</s></p>';
+const KR_SSML = '<p><s>정신적 및 도덕적 유산을 의식한 연합은<break time="300ms"/> <prosody rate="-15%">인간의 존엄성, 자유, 평등 및 연대의 불가분의 보편적 가치에</prosody> 기초하며, 민주주의와 법치의 원칙을 기반으로 한다<break time="500ms"/>. 연합의 시민권과 자유, 안전 및 정의의 영역을 수립함으로써 활동의 중심에 개인을 둔다.</s></p>';
 
 // Sample text values with Voice Transformation SSML (Allison)
 const US_VOICE_SSML_ALLISON = 'Hello! I\'m Allison, but you can change my voice however you wish. <voice-transformation type="Custom" glottal_tension="-80%"> For example, you can make my voice a bit softer, </voice-transformation> <voice-transformation type="Custom" glottal_tension="40%" breathiness="40%"> or a bit strained. </voice-transformation><voice-transformation type="Custom" timbre="Breeze" timbre_extent="60%"> '
@@ -27,6 +29,23 @@ const US_VOICE_SSML_ALLISON = 'Hello! I\'m Allison, but you can change my voice 
 const US_VOICE_SSML_LISA = 'Hello! I\'m Lisa, but you can change my voice however you wish. <voice-transformation type="Custom" glottal_tension="-80%"> For example, you can make my voice a bit softer, </voice-transformation> <voice-transformation type="Custom" glottal_tension="40%" breathiness="40%"> or a bit strained. </voice-transformation><voice-transformation type="Custom" timbre="Breeze" timbre_extent="60%"> You can alter my voice timbre making me sound like this person, </voice-transformation> <voice-transformation type="Custom" timbre="Sunrise"> or like another person in your different applications. </voice-transformation><voice-transformation type="Custom" breathiness="90%"> You can make my voice more breathy than it is normally. </voice-transformation><voice-transformation type="Young" strength="80%"> I can speak like a young girl. </voice-transformation><voice-transformation type="Custom" pitch="20%" pitch_range="80%" rate="60%" glottal_tension="-80%" timbre="Sunrise"> And you can combine all this with modifications of my speech rate and my tone. </voice-transformation>';
 
 const voices = [
+  {
+    name: 'ko-KR_SujiVoice',
+    language: 'ko-KR',
+    option: 'Korean (ko-KR): Suji (female)',
+    customizable: true,
+    gender: 'female',
+    url: 'https://stream.watsonplatform.net/text-to-speech/api/v1/voices/ko-KR_SujiVoice',
+    supported_features: {
+      voice_transformation: false,
+      custom_pronunciation: true,
+    },
+    demo: {
+      text: KR_TEXT,
+      ssml: KR_SSML,
+    },
+    description: 'Suji: Korean (한국어) female voice.',
+  },
   {
     name: 'pt-BR_IsabelaVoice',
     language: 'pt-BR',
